@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-
+[RequireComponent(typeof(Player))]
 public class PlayerSetup : NetworkBehaviour
 {
     [SerializeField] 
@@ -18,14 +18,7 @@ public class PlayerSetup : NetworkBehaviour
     {
         //check if we are controlling the player
         if (!isLocalPlayer)
-        { //if not, disabled these componenets
-
-            // He moved to DisableComponents(){}
-            //for (int i = 0; i < compToDisable.Length; i++)
-            //{
-            //    compToDisable[i].enabled = false;
-            //}
-
+        { 
             DisableComponents();
             AssignRemoteLayer();
         }
@@ -37,14 +30,15 @@ public class PlayerSetup : NetworkBehaviour
                 sceneCamera.gameObject.SetActive(false);
             }
         }
-
-        RegisterPlayer();
     }
-
-    void RegisterPlayer()
+    public override void OnStartClient()
     {
-        string _ID = "Player " + GetComponent<NetworkIdentity>().netId;
-        transform.name = _ID;
+        base.OnStartClient();
+
+        string _netID = GetComponent<NetworkIdentity>().netId.ToString();
+        Player _player = GetComponent<Player>();
+
+        GameManager.RegisterPlayer(_netID, _player);
     }
 
     void DisableComponents()
@@ -67,5 +61,7 @@ public class PlayerSetup : NetworkBehaviour
         {
             sceneCamera.gameObject.SetActive(true);
         }
+
+        GameManager.UnRegisterPlayer(transform.name);
     }
 }
