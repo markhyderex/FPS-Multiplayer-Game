@@ -9,6 +9,8 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField] 
     Behaviour[] compToDisable;
 
+    public Camera sceneCamera;
+
     void Start()
     {
         //check if we are controlling the player
@@ -19,6 +21,24 @@ public class PlayerSetup : NetworkBehaviour
                 compToDisable[i].enabled = false;
             }
         }
+        else if (isLocalPlayer)
+        {
+            print("sdsad");
+            sceneCamera = Camera.main;
+            if (sceneCamera != null)
+            {
+                sceneCamera.gameObject.SetActive(false);
+            }
+            Camera.main.gameObject.SetActive(true);
+        }
     }
 
+    private void OnDisable()
+    {
+
+        if (sceneCamera != null)
+        {
+            sceneCamera.gameObject.SetActive(true);
+        }
+    }
 }
