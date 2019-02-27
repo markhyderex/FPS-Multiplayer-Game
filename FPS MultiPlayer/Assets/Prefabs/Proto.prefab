@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2124486155082839966}
   - component: {fileID: 2124486155082839967}
   - component: {fileID: 458713726602199491}
+  - component: {fileID: 3716924926044888314}
   m_Layer: 0
   m_Name: Proto
   m_TagString: Untagged
@@ -125,3 +126,20 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &3716924926044888314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124486155082839960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7cbf86cf8dc54418021990bdba6615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compToDisable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
