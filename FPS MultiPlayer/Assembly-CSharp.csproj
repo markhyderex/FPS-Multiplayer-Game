@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\PlayerSetup.cs" />
     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
     <Compile Include="Assets\Scripts\PlayerWeapon.cs" />
+    <Compile Include="Assets\Scripts\Test.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Download/FPS Game/FPS-Multiplayer-Game/FPS-Multiplayer-Game/FPS MultiPlayer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
